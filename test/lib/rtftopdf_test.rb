@@ -2,6 +2,12 @@ require_relative '../test_helper'
 
 describe "rtf to pdf conversion" do
 
+  let(:mock_pdfkit) do
+    m = Object.new
+    m.stubs(:to_pdf)
+    m
+  end
+
 	describe "rtf to html conversion" do
 
     it "must turn rtf input into html" do
@@ -14,9 +20,7 @@ describe "rtf to pdf conversion" do
       html_content = `unrtf #{temporary_rtf_file.path}`
       temporary_rtf_file.unlink
       
-      mock_pdfkit = mock() do
-        expects(:to_pdf)
-      end
+      mock_pdfkit.expects(:to_pdf)
 
       PDFKit.expects(:new).with(html_content).returns(mock_pdfkit)
       RTFtoPDF.to_pdf(rtf_input)
@@ -30,7 +34,6 @@ describe "rtf to pdf conversion" do
 
 	it "must pass on the html result to pdf kit" do
 
-    mock_pdfkit = Object.new
     mock_pdfkit.expects(:to_pdf)
 
 		RTF.any_instance.stubs(:to_html).returns("my html content!")
