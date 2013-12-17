@@ -5,8 +5,8 @@ Converts rtf strings to pdf output using unrtf and wkhtmltopdf.
 
 ## Installation
 
-	brew install unrtf
-	brew install wkhtmltopdf
+    brew install unrtf
+    brew install wkhtmltopdf
 
 Add this line to your application's Gemfile:
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-	RTFtoPDF.to_pdf("some rtf input")
+````ruby
+RTFtoPDF.to_pdf("some rtf input")
+````
 
 ## Contributing
 
