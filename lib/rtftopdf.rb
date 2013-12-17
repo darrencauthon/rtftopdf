@@ -1,5 +1,4 @@
 require "rtftopdf/version"
-require "pdfkit"
 
 class RTF
 	def initialize rtf_content

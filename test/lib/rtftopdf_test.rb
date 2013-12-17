@@ -1,5 +1,7 @@
 require 'test_helper'
 require 'tempfile'
+require 'pdfkit'
+require 'mocha/setup'
 
 describe "rtf to pdf conversion" do
 	describe "rtf to html conversion" do
