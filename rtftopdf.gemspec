@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rtftopdf::VERSION
   spec.authors       = ["Caleb Cauthon"]
   spec.email         = ["calebcauthon@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{RTF to PDF conversion}
+  spec.summary       = %q{Converts rtf strings to pdf output using unrtf and wkhtmltopdf.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
