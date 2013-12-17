@@ -10,12 +10,18 @@ describe "rtf to pdf conversion" do
 
 	describe "rtf to html conversion" do
 
-    it "must turn rtf input into html" do
+    let(:rtf_input) do
+      '{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Times New Roman;}{\f2\fnil Times New Roman;}{\f3\fswiss\fprq2\fcharset0 Arial;}}\viewkind4\uc1\pard\nowidctlpar\qr\b\f0\fs18 LOREM ISPO FACTO\par\pard\nowidctlpar\qc\f1\fs28 LOREM IPSEUM AGREEMENT\f0\fs18                                                                         \par}'
+    end
 
-      rtf_input = '{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Times New Roman;}{\f2\fnil Times New Roman;}{\f3\fswiss\fprq2\fcharset0 Arial;}}\viewkind4\uc1\pard\nowidctlpar\qr\b\f0\fs18 LOREM ISPO FACTO\par\pard\nowidctlpar\qc\f1\fs28 LOREM IPSEUM AGREEMENT\f0\fs18                                                                         \par}'
-      temporary_rtf_file = Tempfile.new('RTF')
-      temporary_rtf_file.write(rtf_input)
-      temporary_rtf_file.close
+    let(:temporary_rtf_file) do
+      file = Tempfile.new('RTF')
+      file.write(rtf_input)
+      file.close
+      file
+    end
+
+    it "must turn rtf input into html" do
 
       html_content = `unrtf #{temporary_rtf_file.path}`
       temporary_rtf_file.unlink
