@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["calebcauthon@gmail.com"]
   spec.description   = %q{RTF to PDF conversion}
   spec.summary       = %q{Converts rtf strings to pdf output using unrtf and wkhtmltopdf.}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/calebcauthon/rtftopdf"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
