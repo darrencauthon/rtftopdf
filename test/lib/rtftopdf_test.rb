@@ -1,5 +1,4 @@
-require 'test_helper'
-require 'mocha/setup'
+require_relative '../test_helper'
 
 describe "rtf to pdf conversion" do
 	describe "rtf to html conversion" do
