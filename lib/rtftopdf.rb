@@ -1,5 +1,6 @@
 require "rtftopdf/version"
 
-module Rtftopdf
-  # Your code goes here...
+class RTF
+	def self.body rtf_content
+	end
 end
