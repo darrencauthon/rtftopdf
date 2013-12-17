@@ -11,9 +11,12 @@ describe "rtf to pdf conversion" do
 
       html_content = `unrtf #{temporary_rtf_file.path}`
       temporary_rtf_file.unlink
+      
+      mock_pdfkit = mock() do
+        expects(:to_pdf)
+      end
 
-      PDFKit.expects(:new).with(html_content)
-
+      PDFKit.expects(:new).with(html_content).returns(mock_pdfkit)
       RTFtoPDF.to_pdf(rtf_input)
   	end
     it "must delete the temporary file when its finished" do
@@ -22,12 +25,18 @@ describe "rtf to pdf conversion" do
     end
   end
 	it "must pass on the html result to pdf kit" do
+    mock_pdfkit = mock() do
+      expects(:to_pdf)
+    end
+
 		RTF.any_instance.stubs(:to_html).returns("my html content!")
 
-		PDFKit.expects(:new).with("my html content!")
-
+		PDFKit.expects(:new).with("my html content!").returns(mock_pdfkit)
     RTFtoPDF.to_pdf("bla bla /so-=1 RTF content")
 	end
 	it "must return the pdf result from pdfkit" do
+    PDFKit.any_instance.stubs(:to_pdf).returns("my pdf!")
+    
+    RTFtoPDF.to_pdf("00001").must_equal "my pdf!"
 	end
 end
