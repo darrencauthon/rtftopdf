@@ -3,7 +3,7 @@ require 'tempfile'
 require 'pdfkit'
 
 class RTF
-	def initialize rtf_content
+  def initialize rtf_content
     @rtf_content = rtf_content
   end
 
