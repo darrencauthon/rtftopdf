@@ -1,8 +1,12 @@
 # Rtftopdf
 
-TODO: Write a gem description
+Converts rtf strings to pdf output using unrtf and wkhtmltopdf.
+
 
 ## Installation
+
+	brew install unrtf
+	brew install wkhtmltopdf
 
 Add this line to your application's Gemfile:
 
@@ -18,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+	RTFtoPDF.to_pdf("some rtf input")
 
 ## Contributing
 
