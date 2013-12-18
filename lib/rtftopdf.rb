@@ -1,4 +1,5 @@
 require "rtftopdf/rtf"
+require "rtftopdf/temporary_file"
 require "rtftopdf/version"
 require 'tempfile'
 require 'pdfkit'
