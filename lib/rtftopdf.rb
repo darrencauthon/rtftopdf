@@ -7,7 +7,7 @@ require 'pdfkit'
 
 module RTFtoPDF
   def self.to_pdf rtf_content
-    html_content = RTF.new(rtf_content).to_html
+    html_content = RTF.parse(rtf_content).to_html
     pdf_content = PDFKit.new(html_content).to_pdf
 
     pdf_content
